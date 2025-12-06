@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Teste\",\r\n  \"email\": \"teste@example.com\",\r\n  \"password\": \"Abc12345!\"\r\n}\r\n",
+							"raw": "{\r\n  \"nome\": \"usuário\",\r\n  \"email\": \"teste@com.com\",\r\n  \"password\": \"Abc12345!\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -92,7 +92,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/69336ade8245fe44dbe5841d",
+							"raw": "http://localhost:3000/users/id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -100,7 +100,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"69336ade8245fe44dbe5841d"
+								"id"
 							]
 						}
 					},
@@ -114,8 +114,39 @@
 				{
 					"name": "CreateAgendamento",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY0OTc4NjE2LCJleHAiOjE3NjUwNjUwMTZ9.JhiP1PSslNzPylGrltRI6rLcURlz2vpuK_Skhi00BOc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Agendamento diário\",\r\n  \"description\": \"Rodar script de suporte\",\r\n  \"color\": \"#ff0000\",\r\n  \"fields\": [\r\n    {\r\n      \"type\": \"text\",\r\n      \"required\": true,\r\n      \"label\": \"Nome do cliente\",\r\n      \"placeholder\": \"Digite o nome do cliente\"\r\n    },\r\n    {\r\n      \"type\": \"select\",\r\n      \"required\": false,\r\n      \"label\": \"Tipo de suporte\",\r\n      \"placeholder\": \"Selecione o tipo\",\r\n      \"options\": [\"Remoto\", \"Presencial\", \"Telefone\"]\r\n    }\r\n  ],\r\n  \"weekdays\": [\"segunda\", \"terça\", \"quarta\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/agendamento/config",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agendamento",
+								"config"
+							]
+						}
 					},
 					"response": []
 				},
@@ -123,7 +154,19 @@
 					"name": "GetAllAgendamentos",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/agendamento/config",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agendamento",
+								"config"
+							]
+						}
 					},
 					"response": []
 				},
@@ -131,7 +174,25 @@
 					"name": "GetAllAgendamentosTrue",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/agendamento/config?status=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agendamento",
+								"config"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "true"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -160,7 +221,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/agendamento/config/693373412bad10426eabf65c",
+							"raw": "http://localhost:3000/agendamento/config/id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -169,7 +230,7 @@
 							"path": [
 								"agendamento",
 								"config",
-								"693373412bad10426eabf65c"
+								"id"
 							]
 						}
 					},
@@ -185,6 +246,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"email\": \"teste@example.com\", \r\n    \"password\": \"Abc12345!\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3000/auth",
 							"protocol": "http",
