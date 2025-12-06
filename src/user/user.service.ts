@@ -3,14 +3,12 @@ import { UserRepository } from './repository/user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './schema/user.schema';
 import { BcryptHelper } from './helpers/bcrypt.helpers';
-import { UserParamDto } from './dto/user-param.dto';
 
 @Injectable()
 export class UserService {
     constructor(
         private userRepository: UserRepository,
         private bcryptHelpers: BcryptHelper,
-        private userParamDto: UserParamDto
     )
     {}
 

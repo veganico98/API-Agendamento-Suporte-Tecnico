@@ -12,6 +12,6 @@ import { BcryptHelper } from './helpers/bcrypt.helpers';
   ],
   controllers: [UserController],
   providers: [UserService, UserRepository, BcryptHelper],
-  exports: []
+  exports: [UserRepository, BcryptHelper], // 👈 EXPORTA PRO AUTHMODULE USAR
 })
-export class UserModule{}
+export class UserModule {}
